@@ -3,7 +3,7 @@ package saucedemo.tests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
-import saucedemo.WebDriverInit;
+import saucedemo.webdriverInit.WebDriverInit;
 import saucedemo.pages.HomePage;
 import saucedemo.pages.SingUpPage;
 
@@ -14,8 +14,7 @@ public class ListBox extends WebDriverInit {
     SingUpPage singUpPage = PageFactory.initElements(driver, SingUpPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     singUpPage.login();
-    Assert.assertEquals(homePage.getSauceLabsBackpack().getText(), homePage.getItemsSuite().get(0).getText());
-    Assert.assertEquals(homePage.getShirtRed().getText(), homePage.getItemsSuite().get(5).getText());
+    Assert.assertEquals(homePage.sortListAToZ(), homePage.notSortedItemList());
   }
 
   @Test
@@ -25,29 +24,26 @@ public class ListBox extends WebDriverInit {
     singUpPage.login();
     homePage.getListBox().click();
     homePage.getListBoxZtoA().click();
-    Assert.assertEquals(homePage.getShirtRed().getText(), homePage.getItemsSuite().get(0).getText());
-    Assert.assertEquals(homePage.getSauceLabsBackpack().getText(), homePage.getItemsSuite().get(5).getText());
+    Assert.assertEquals(homePage.sortListZToA(), homePage.notSortedItemList());
   }
 
   @Test
-  public void nameLowToHigh() {
+  public void priceLowToHigh() {
     SingUpPage singUpPage = PageFactory.initElements(driver, SingUpPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     singUpPage.login();
     homePage.getListBox().click();
     homePage.getListBoxLowToHigh().click();
-    Assert.assertEquals(homePage.getSauceLabsOnesie().getText(), homePage.getItemsSuite().get(0).getText());
-    Assert.assertEquals(homePage.getSauceLabsFleeceJacket().getText(), homePage.getItemsSuite().get(5).getText());
+    Assert.assertEquals(homePage.sortPriceLowToHigh(), homePage.getPriceItemsFromPage());
   }
 
   @Test
-  public void nameHighToLow() {
+  public void priceHighToLow() {
     SingUpPage singUpPage = PageFactory.initElements(driver, SingUpPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
     singUpPage.login();
     homePage.getListBox().click();
     homePage.getListBoxHighToLow().click();
-    Assert.assertEquals(homePage.getSauceLabsFleeceJacket().getText(), homePage.getItemsSuite().get(0).getText());
-    Assert.assertEquals(homePage.getSauceLabsOnesie().getText(), homePage.getItemsSuite().get(5).getText());
+    Assert.assertEquals(homePage.sortPriceHighToLow(), homePage.getPriceItemsFromPage());
   }
 }

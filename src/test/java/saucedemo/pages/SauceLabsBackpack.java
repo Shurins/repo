@@ -1,4 +1,4 @@
-package saucedemo.itempages;
+package saucedemo.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

@@ -1,4 +1,4 @@
-package saucedemo;
+package saucedemo.webdriverInit;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,7 +15,7 @@ public class WebDriverInit {
   public void setUp(){
     driver = new ChromeDriver();
     driver.get("https://www.saucedemo.com");
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
   }
 
   @After
