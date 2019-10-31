@@ -15,8 +15,22 @@ public class Overview {
   @FindBy(xpath = "//a[@class='btn_action cart_button']")
   private WebElement finishButton;
 
+  @FindBy(xpath = "//a[@class='cart_cancel_link btn_secondary']")
+  private WebElement cancelButton;
+
+  @FindBy(xpath = "//div[text()='Payment Information:']")
+  private WebElement paymentInformation;
+
   public WebElement getFinishButton() {
     return finishButton;
+  }
+
+  public WebElement getCancelButton() {
+    return cancelButton;
+  }
+
+  public WebElement getPaymentInformation() {
+    return paymentInformation;
   }
 
 }
