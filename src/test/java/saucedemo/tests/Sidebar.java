@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import saucedemo.SauseLabs;
 import saucedemo.pages.HomePage;
 import saucedemo.pages.SingUpPage;
 import saucedemo.webdriverInit.WebDriverInit;
@@ -21,10 +22,13 @@ public class Sidebar extends WebDriverInit {
   }
 
   @Test
-  public void aboutLink(){
+  public void aboutLink() {
     SingUpPage singUp = PageFactory.initElements(driver, SingUpPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+    SauseLabs sauseLabs = PageFactory.initElements(driver, SauseLabs.class);
     singUp.login();
-    Assert.assertEquals("Swag Labs", homePage.getHomePageTitle().getText().toString());
+    homePage.getSidebarButton().click();
+    homePage.getAboutLink().click();
+    Assert.assertEquals(, sauseLabs.getSauseLabsTitle().getText().toString());
   }
 }
