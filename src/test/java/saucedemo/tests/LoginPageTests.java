@@ -6,14 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 import saucedemo.webdriverInit.WebDriverInit;
 import saucedemo.pages.SingUpPage;
 
-public class SingUp extends WebDriverInit {
+public class LoginPageTests extends WebDriverInit {
 
 
   @Test
   public void singUp() {
     SingUpPage singUpPage = PageFactory.initElements(driver, SingUpPage.class);
     singUpPage.login();
-    Assert.assertEquals(singUpPage.getStrTitle(), singUpPage.getTitle());
+    Assert.assertEquals(singUpPage.getTitle(), singUpPage.getTitle());
   }
 
   @Test

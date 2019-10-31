@@ -14,8 +14,14 @@ public class Finish {
     this.driver = driver;
   }
 
+  private String gratitude = "THANK YOU FOR YOUR ORDER";
+
   @FindBy(xpath = "//h2[text()='THANK YOU FOR YOUR ORDER']")
   private WebElement completeHeader;
+
+  public String getGratitude() {
+    return gratitude;
+  }
 
   public WebElement getCompleteHeader() {
     return completeHeader;

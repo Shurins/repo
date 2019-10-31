@@ -7,7 +7,7 @@ import saucedemo.webdriverInit.WebDriverInit;
 import saucedemo.pages.HomePage;
 import saucedemo.pages.SingUpPage;
 
-public class ListBox extends WebDriverInit {
+public class ListBoxTests extends WebDriverInit {
 
   @Test
   public void nameAtoZ() {

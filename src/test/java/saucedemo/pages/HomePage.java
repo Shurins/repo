@@ -75,6 +75,9 @@ public class HomePage {
   @FindBy(xpath = "//a[@id='about_sidebar_link']")
   private WebElement aboutLink;
 
+  @FindBy(xpath = "//a[@id='logout_sidebar_link']")
+  private WebElement logoutLink;
+
   public WebElement getHomePageTitle() {
     return homePageTitle;
   }
@@ -141,6 +144,10 @@ public class HomePage {
 
   public WebElement getAboutLink() {
     return aboutLink;
+  }
+
+  public WebElement getLogoutLink() {
+    return logoutLink;
   }
 
   public ArrayList<String> sortListAToZ() {

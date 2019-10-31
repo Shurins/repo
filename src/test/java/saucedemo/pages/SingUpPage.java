@@ -1,6 +1,5 @@
 package saucedemo.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,11 +20,10 @@ public class SingUpPage {
   private String userPassword = "secret_sauce";
   private String emptyUserNameLogin = "";
   private String emptyUserPassword = "";
-  private String strTitle = "Swag Labs";
+  private String title = "Swag Labs";
   private String strUsernameIsRequired = "Epic sadface: Username is required";
   private String strPasswordIsRequired = "Epic sadface: Password is required";
   private String strUsernameAndPassDoNotMatch = "Epic sadface: Username and password do not match any user in this service";
-
 
   @FindBy(xpath = "//input[@id='user-name']")
   private WebElement fieldUsername;
@@ -47,6 +45,9 @@ public class SingUpPage {
 
   @FindBy(xpath = "//h3[@data-test='error']")
   private WebElement usernameAndPassDoNotMatch;
+
+  @FindBy(xpath = "//title")
+  private WebElement singUpPageTitle;
 
 
   public String getStrUsernameIsRequired() {
@@ -73,8 +74,8 @@ public class SingUpPage {
     return buttonLogin;
   }
 
-  public String getStrTitle() {
-    return strTitle;
+  public String getTitle() {
+    return title;
   }
 
   public WebElement getFieldUsername() {
@@ -95,6 +96,14 @@ public class SingUpPage {
 
   public WebElement getUsernameAndPassDoNotMatch() {
     return usernameAndPassDoNotMatch;
+  }
+
+  public WebElement getSingUpPageTitle() {
+    return singUpPageTitle;
+  }
+
+  public WebDriver getDriver() {
+    return driver;
   }
 
   public void login() {
@@ -121,7 +130,7 @@ public class SingUpPage {
     buttonLogin.click();
   }
 
-  public String incorrectLogin(){
+  public String incorrectLogin() {
     String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz[|]'~<!--@/*$%^&#*/()?>,.*/1234567890";
     String incorrectLogin = "";
     Random random = new Random();
@@ -135,11 +144,11 @@ public class SingUpPage {
 
     for (int i = 0; i < text.length; i++) {
       incorrectLogin += text[i];
-          }
+    }
     return incorrectLogin;
   }
 
-  public String incorrectPassword(){
+  public String incorrectPassword() {
     String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz[|]'~<!--@/*$%^&#*/()?>,.*/1234567890";
     String incorrectPassword = "";
     Random random = new Random();
@@ -180,8 +189,4 @@ public class SingUpPage {
     buttonLogin.click();
   }
 
-  public String getTitle(){
-    String getTitle = driver.getTitle().toString();
-    return getTitle;
-  }
 }

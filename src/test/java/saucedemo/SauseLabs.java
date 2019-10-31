@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import saucedemo.webdriverInit.WebDriverInit;
 
 public class SauseLabs {
+
   WebDriver driver;
 
   public SauseLabs(WebDriver driver) {
     this.driver = driver;
   }
-
 
   private String title = "Cross Browser Testing, Selenium Testing, Mobile Testing | Sauce Labs";
 
